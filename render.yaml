@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: nexus-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: XAI_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.12.7"
